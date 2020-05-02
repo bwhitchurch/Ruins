@@ -3,7 +3,6 @@ local mediumRuins = require("scripts/mediumRuins")
 local largeRuins = require("scripts/largeRuins")
 
 local DEBUG = false --used for debug, users should not enable
---function that will return true 'percent' of the time.
 local function randomizeCenter(center, variance)
 	return {
 		x = center.x + math.random(-variance, variance),
