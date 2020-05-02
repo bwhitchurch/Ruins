@@ -13,7 +13,7 @@ end
 
 local function ruinCanSpawn(center)
 	local spawnRadius = settings.global["ruins-min-distance-from-spawn"].value
-	local distance = math.abs(center.x) or math.abs(center.y)
+	local distance = math.max(math.abs(center.x), math.abs(center.y))
 	return distance >= spawnRadius
 end
 
@@ -22,7 +22,7 @@ local function spawnChances()
 	local mediumChance = settings.global["ruins-medium-ruin-chance"].value
 	local largeChance = settings.global["ruins-large-ruin-chance"].value
 	local sumChance = smallChance + mediumChance + largeChance
-	local totalChance = sumChance or 1
+	local totalChance = math.min(sumChance, 1)
 	-- now compute cumulative distribution of conditional probabilities for
 	-- spawnType given a spawn occurs.
 	local smallThreshold = smallChance / sumChance * totalChance
@@ -32,6 +32,8 @@ local function spawnChances()
 		largeChance / sumChance * totalChance + mediumThreshold
 
 	if DEBUG then
+		game.print("SumChance = " .. sumChance .. "\n")
+		game.print("TotalCHance = " .. totalChance .. "\n")
 		game.print(
 			"Threshold for small ruin spawn = " .. smallThreshold .. "\n"
 		)
