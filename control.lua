@@ -22,8 +22,6 @@ local function spawnChances()
 	local mediumChance = settings.global["ruins-medium-ruin-chance"].value
 	local largeChance = settings.global["ruins-large-ruin-chance"].value
 	local sumChance = smallChance + mediumChance + largeChance
-	-- chance of a ruin spawn cannot exceed 1.
-	local totalChance = smallChance + mediumChance + largeChance or 1
 	-- now compute cumulative distribution of conditional probabilities for
 	-- spawnType given a spawn occurs.
 	local smallThreshold = smallChance / sumChance * totalChance
