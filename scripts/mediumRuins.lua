@@ -24,7 +24,7 @@ table.insert(m_ruins, require("mediumRuins.storageArea"))
 table.insert(m_ruins, require("mediumRuins.militaryField"))
 
 local function spawnMediumRuins(center, surface)
-	if clearArea(center, surface) then
+	if clearArea(center, surface, radius) then
 		m_ruins[math.random(#m_ruins)](center, surface) --call a random function
 	end
 end

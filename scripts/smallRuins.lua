@@ -97,7 +97,7 @@ table.insert(s_ruins, require("smallRuins.victoryPoles8"))
 table.insert(s_ruins, require("smallRuins.victoryPoles9"))
 
 local function spawnSmallRuins(center, surface)
-	if clearArea(center, surface) then
+	if clearArea(center, surface, radius) then
 		s_ruins[math.random(#s_ruins)](center, surface) --call a random function
 	end
 end
