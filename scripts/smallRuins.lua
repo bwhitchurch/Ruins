@@ -1,23 +1,6 @@
-
---checks for spawning validity and if valid, clears space for the spawn
-function s_clearArea(center, surface)
-    --exclude tiles that we shouldn't spawn on
-    local radius = 4
-    if surface.count_tiles_filtered{ area = {{center.x-radius, center.y-radius}, {center.x+radius, center.y+radius}}, limit = 1, collision_mask = "item-layer" } == 1 then
-        return false
-    end
-
-    for index, entity in pairs(surface.find_entities({{center.x-radius,center.y-radius},{center.x+radius,center.y+radius}})) do
-        if entity.valid and entity.type ~= "resource" and entity.type ~= "tree" then --don't destroy ores or trees
-            entity.destroy({do_cliff_correction=true})
-        end
-    end
-
-    return true
-end
-
+local clearArea = require("clearArea").clearArea
+local radius = 4
 local s_ruins = {}
-
 
 table.insert(s_ruins, require("smallRuins.crossOfPipes"))
 table.insert(s_ruins, require("smallRuins.crossOfPipes2"))
@@ -113,9 +96,10 @@ table.insert(s_ruins, require("smallRuins.victoryPoles7"))
 table.insert(s_ruins, require("smallRuins.victoryPoles8"))
 table.insert(s_ruins, require("smallRuins.victoryPoles9"))
 
-
-function spawnSmallRuins(center, surface)
-    if s_clearArea(center, surface) then
-        s_ruins[math.random(#s_ruins)](center, surface) --call a random function
-    end
+local function spawnSmallRuins(center, surface)
+	if clearArea(center, surface, radius) then
+		s_ruins[math.random(#s_ruins)](center, surface) --call a random function
+	end
 end
+
+return { spawn = spawnSmallRuins }

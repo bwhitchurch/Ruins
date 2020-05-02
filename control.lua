@@ -1,47 +1,87 @@
-require("smallRuins")
-require("mediumRuins")
-require("largeRuins")
+local smallRuins = require("scripts/smallRuins")
+local mediumRuins = require("scripts/mediumRuins")
+local largeRuins = require("scripts/largeRuins")
 
 local DEBUG = false --used for debug, users should not enable
-
---function that will return true 'percent' of the time.
-function probability(percent)
-    return math.random() <= percent
+local function randomizeCenter(center, variance)
+	return {
+		x = center.x + math.random(-variance, variance),
+		y = center.y + math.random(-variance, variance)
+	}
 end
 
-script.on_event(defines.events.on_chunk_generated,
-    function (e)
-        local center = {x=(e.area.left_top.x+e.area.right_bottom.x)/2, y=(e.area.left_top.y+e.area.right_bottom.y)/2}
-        if math.abs(center.x) < settings.global["ruins-min-distance-from-spawn"].value and math.abs(center.y) < settings.global["ruins-min-distance-from-spawn"].value then return end --too close to spawn
+local function ruinCanSpawn(center)
+	local spawnRadius = settings.global["ruins-min-distance-from-spawn"].value
+	local distance = math.max(math.abs(center.x), math.abs(center.y))
+	return distance >= spawnRadius
+end
 
-        if probability(settings.global["ruins-small-ruin-chance"].value) then
-            --spawn small ruin
-            if DEBUG then
-                game.print("A small ruin was spawned at " .. center.x .. "," .. center.y)
-            end
+local function spawnChances()
+	local smallChance = settings.global["ruins-small-ruin-chance"].value
+	local mediumChance = settings.global["ruins-medium-ruin-chance"].value
+	local largeChance = settings.global["ruins-large-ruin-chance"].value
+	local sumChance = smallChance + mediumChance + largeChance
+	local totalChance = math.min(sumChance, 1)
+	-- now compute cumulative distribution of conditional probabilities for
+	-- spawnType given a spawn occurs.
+	local smallThreshold = smallChance / sumChance * totalChance
+	local mediumThreshold =
+		mediumChance / sumChance * totalChance + smallThreshold
+	local largeThreshold =
+		largeChance / sumChance * totalChance + mediumThreshold
 
-            --random variance so they aren't always chunk aligned
-            center.x = center.x + math.random(-10,10)
-            center.y = center.y + math.random(-10,10)
+	if DEBUG then
+		local debugString = "SumChance = " .. sumChance .. "\n"
+		debugString = debugString .. "TotalChance = " .. totalChance
+		debugString =
+			debugString .. "\n" .. "Threshold for small ruin spawn = " .. smallThreshold .. "\n"
+		debugString =
+			debugString .. "Threshold for medium ruin spawn = " .. mediumThreshold .. "\n"
+		debugString =
+			debugString .. "Threshold for large ruin spawn = " .. largeThreshold .. "\n"
+		game.print(debugString)
+	end
 
-            spawnSmallRuins(center, e.surface)
-        elseif probability(settings.global["ruins-medium-ruin-chance"].value) then
-            --spawn medium ruin
-            if DEBUG then
-                game.print("A medium ruin was spawned at " .. center.x .. "," .. center.y)
-            end
+	return {
+		small = smallThreshold,
+		medium = mediumThreshold,
+		large = largeThreshold
+	}
+end
 
-            --random variance so they aren't always chunk aligned
-            center.x = center.x + math.random(-5,5)
-            center.y = center.y + math.random(-5,5)
+script.on_event(defines.events.on_chunk_generated, function(e)
+	local center = {
+		x = (e.area.left_top.x + e.area.right_bottom.x) / 2,
+		y = (e.area.left_top.y + e.area.right_bottom.y) / 2
+	}
+	if not ruinCanSpawn(center) then return end --too close to spawn
+	local spawnTable = spawnChances()
+	local spawnType = math.random()
+	if spawnType <= spawnTable.small then
+		if DEBUG then
+			game.print(
+				"A small ruin was spawned at " .. center.x .. "," .. center.y
+			)
+		end
+		center = randomizeCenter(center, 10)
+		smallRuins.spawn(center, e.surface)
+	elseif spawnType <= spawnTable.medium then
+		--spawn medium ruin
+		if DEBUG then
+			game.print(
+				"A medium ruin was spawned at " .. center.x .. "," .. center.y
+			)
+		end
 
-            spawnMediumRuins(center, e.surface)
-        elseif probability(settings.global["ruins-large-ruin-chance"].value) then
-            --spawn large ruin
-            if DEBUG then
-                game.print("A large ruin was spawned at " .. center.x .. "," .. center.y)
-            end
-            spawnLargeRuins(center, e.surface)
-        end
-    end
-)
+		center = randomizeCenter(center, 5)
+		mediumRuins.spawn(center, e.surface)
+	elseif spawnType <= spawnTable.large then
+		--spawn large ruin
+		if DEBUG then
+			game.print(
+				"A large ruin was spawned at " .. center.x .. "," .. center.y
+			)
+		end
+		largeRuins.spawn(center, e.surface)
+	end
+end)
