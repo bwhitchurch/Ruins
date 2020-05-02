@@ -1,25 +1,25 @@
 --checks for spawning validity and if valid, clears space for the spawn
 local function clearArea(center, surface, radius)
 	if surface.count_tiles_filtered{
-		area = {
-			{ center.x - radius, center.y - radius },
-			{ center.x + radius, center.y + radius }
-		},
+		position = center,
+		radius = radius,
 		limit = 1,
 		collision_mask = "item-layer"
 	} == 1 then
 		return false
 	end
 
-	for entity in
-		surface.find_entities(
-			{
-				{ center.x - radius, center.y - radius },
-				{ center.x + radius, center.y + radius }
+	for _, entity in
+		ipairs(
+			surface.find_entities_filtered{
+				position = center,
+				radius = radius,
+				type = { "resource, tree" },
+				invert = true
 			}
 		)
 	do
-		if entity.valid and entity.type ~= "resource" and entity.type ~= "tree" then --don't destroy ores or trees
+		if entity.valid then
 			entity.destroy({ do_cliff_correction = true })
 		end
 	end
