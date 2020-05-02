@@ -32,17 +32,15 @@ local function spawnChances()
 		largeChance / sumChance * totalChance + mediumThreshold
 
 	if DEBUG then
-		game.print("SumChance = " .. sumChance .. "\n")
-		game.print("TotalCHance = " .. totalChance .. "\n")
-		game.print(
-			"Threshold for small ruin spawn = " .. smallThreshold .. "\n"
-		)
-		game.print(
-			"Threshold for medium ruin spawn = " .. mediumThreshold .. "\n"
-		)
-		game.print(
-			"Threshold for large ruin spawn = " .. largeThreshold .. "\n"
-		)
+		local debugString = "SumChance = " .. sumChance .. "\n"
+		debugString = debugString .. "TotalChance = " .. totalChance
+		debugString =
+			debugString .. "\n" .. "Threshold for small ruin spawn = " .. smallThreshold .. "\n"
+		debugString =
+			debugString .. "Threshold for medium ruin spawn = " .. mediumThreshold .. "\n"
+		debugString =
+			debugString .. "Threshold for large ruin spawn = " .. largeThreshold .. "\n"
+		game.print(debugString)
 	end
 
 	return {
