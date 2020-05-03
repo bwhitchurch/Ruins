@@ -194,4 +194,5 @@ ruin.entities = {
     {name = "transport-belt", position = {12.0, 8.0}, direction = direct.south},
     {name = "transport-belt", position = {12.0, 10.0}, direction = direct.south}
 }
+
 return ruin

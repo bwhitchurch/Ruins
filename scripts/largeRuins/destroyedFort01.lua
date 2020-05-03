@@ -52,7 +52,7 @@ ruin.entities = {
     {name = "stone-wall", position = {9.0, 0.0}},
     {name = "stone-wall", position = {9.0, 1.0}},
     {name = "stone-wall", position = {9.0, 3.0}},
-    {name = "stone-wall", position = {9.0, 4.0}},
+    {name = "stone-wall", position = {9.0, 4.0}}
 }
 
 return ruin
