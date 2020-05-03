@@ -1,4 +1,4 @@
-local ruin = {name = "Walled Grotto 1"}
+local ruin = {name = "Walled Grotto"}
 
 ruin.entities = {
     {name = "randomTree", position = {-12.5, -3.5}},
