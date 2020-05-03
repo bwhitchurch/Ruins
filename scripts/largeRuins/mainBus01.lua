@@ -205,7 +205,7 @@ ruin.entities = {
     {name = "underground-belt", position = {-5.0, 2.0}, direction = direct.east},
     {name = "underground-belt", position = {-1.0, -8.0}, direction = direct.east},
     {name = "underground-belt", position = {-1.0, -7.0}, direction = direct.east},
-    {name = "underground-belt", position = {-1.0, 2.0}, direction = direct.east},
+    {name = "underground-belt", position = {-1.0, 2.0}, direction = direct.east}
 }
 
 return ruin

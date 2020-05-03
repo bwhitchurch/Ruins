@@ -1,88 +1,84 @@
+local ruin = {name = "Orchard"}
 
-return function(center, surface) --orchard
-    local randomTree = "tree-0" .. tostring(math.random(1, 9))
-    local ce = function(params)
-        params.raise_built = true
-        return surface.create_entity(params)
-    end
-    local fN = game.forces.neutral
+ruin.entities = {
+    {name = "randomTree", position = {-12.5, -12.5}},
+    {name = "randomTree", position = {-12.5, -7.5}},
+    {name = "randomTree", position = {-12.5, -2.5}},
+    {name = "randomTree", position = {-12.5, 2.5}},
+    {name = "randomTree", position = {-12.5, 7.5}},
+    {name = "randomTree", position = {-12.5, 12.5}},
+    {name = "randomTree", position = {-10.5, -12.5}},
+    {name = "randomTree", position = {-10.5, -7.5}},
+    {name = "randomTree", position = {-10.5, -2.5}},
+    {name = "randomTree", position = {-10.5, 2.5}},
+    {name = "randomTree", position = {-10.5, 7.5}},
+    {name = "randomTree", position = {-10.5, 12.5}},
+    {name = "randomTree", position = {-8.5, -12.5}},
+    {name = "randomTree", position = {-8.5, -7.5}},
+    {name = "randomTree", position = {-8.5, -2.5}},
+    {name = "randomTree", position = {-8.5, 2.5}},
+    {name = "randomTree", position = {-8.5, 7.5}},
+    {name = "randomTree", position = {-8.5, 12.5}},
+    {name = "randomTree", position = {-6.5, -12.5}},
+    {name = "randomTree", position = {-6.5, -7.5}},
+    {name = "randomTree", position = {-6.5, -2.5}},
+    {name = "randomTree", position = {-6.5, 2.5}},
+    {name = "randomTree", position = {-6.5, 7.5}},
+    {name = "randomTree", position = {-6.5, 12.5}},
+    {name = "randomTree", position = {-4.5, -12.5}},
+    {name = "randomTree", position = {-4.5, -7.5}},
+    {name = "randomTree", position = {-4.5, -2.5}},
+    {name = "randomTree", position = {-4.5, 2.5}},
+    {name = "randomTree", position = {-4.5, 7.5}},
+    {name = "randomTree", position = {-4.5, 12.5}},
+    {name = "randomTree", position = {-2.5, -12.5}},
+    {name = "randomTree", position = {-2.5, -7.5}},
+    {name = "randomTree", position = {-2.5, -2.5}},
+    {name = "randomTree", position = {-2.5, 2.5}},
+    {name = "randomTree", position = {-2.5, 7.5}},
+    {name = "randomTree", position = {-2.5, 12.5}},
+    {name = "randomTree", position = {-0.5, -12.5}},
+    {name = "randomTree", position = {-0.5, -7.5}},
+    {name = "randomTree", position = {-0.5, -2.5}},
+    {name = "randomTree", position = {-0.5, 2.5}},
+    {name = "randomTree", position = {-0.5, 7.5}},
+    {name = "randomTree", position = {-0.5, 12.5}},
+    {name = "randomTree", position = {1.5, -12.5}},
+    {name = "randomTree", position = {1.5, -7.5}},
+    {name = "randomTree", position = {1.5, -2.5}},
+    {name = "randomTree", position = {1.5, 2.5}},
+    {name = "randomTree", position = {1.5, 7.5}},
+    {name = "randomTree", position = {1.5, 12.5}},
+    {name = "randomTree", position = {3.5, -12.5}},
+    {name = "randomTree", position = {3.5, -7.5}},
+    {name = "randomTree", position = {3.5, -2.5}},
+    {name = "randomTree", position = {3.5, 2.5}},
+    {name = "randomTree", position = {3.5, 7.5}},
+    {name = "randomTree", position = {3.5, 12.5}},
+    {name = "randomTree", position = {5.5, -12.5}},
+    {name = "randomTree", position = {5.5, -7.5}},
+    {name = "randomTree", position = {5.5, -2.5}},
+    {name = "randomTree", position = {5.5, 2.5}},
+    {name = "randomTree", position = {5.5, 7.5}},
+    {name = "randomTree", position = {5.5, 12.5}},
+    {name = "randomTree", position = {7.5, -12.5}},
+    {name = "randomTree", position = {7.5, -7.5}},
+    {name = "randomTree", position = {7.5, -2.5}},
+    {name = "randomTree", position = {7.5, 2.5}},
+    {name = "randomTree", position = {7.5, 7.5}},
+    {name = "randomTree", position = {7.5, 12.5}},
+    {name = "randomTree", position = {9.5, -12.5}},
+    {name = "randomTree", position = {9.5, -7.5}},
+    {name = "randomTree", position = {9.5, -2.5}},
+    {name = "randomTree", position = {9.5, 2.5}},
+    {name = "randomTree", position = {9.5, 7.5}},
+    {name = "randomTree", position = {9.5, 12.5}},
+    {name = "randomTree", position = {11.5, -12.5}},
+    {name = "randomTree", position = {11.5, -7.5}},
+    {name = "randomTree", position = {11.5, -2.5}},
+    {name = "randomTree", position = {11.5, 2.5}},
+    {name = "randomTree", position = {11.5, 7.5}},
+    {name = "randomTree", position = {11.5, 12.5}}
+}
 
-    ce{name = randomTree, position = {center.x + (-12.5), center.y + (-12.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (-10.5), center.y + (-12.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (-8.5), center.y + (-12.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (-6.5), center.y + (-12.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (-4.5), center.y + (-12.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (-2.5), center.y + (-12.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (-0.5), center.y + (-12.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (1.5), center.y + (-12.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (3.5), center.y + (-12.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (5.5), center.y + (-12.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (7.5), center.y + (-12.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (9.5), center.y + (-12.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (11.5), center.y + (-12.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (-12.5), center.y + (-7.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (-10.5), center.y + (-7.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (-8.5), center.y + (-7.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (-6.5), center.y + (-7.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (-4.5), center.y + (-7.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (-2.5), center.y + (-7.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (-0.5), center.y + (-7.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (1.5), center.y + (-7.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (3.5), center.y + (-7.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (5.5), center.y + (-7.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (7.5), center.y + (-7.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (9.5), center.y + (-7.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (11.5), center.y + (-7.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (-12.5), center.y + (-2.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (-10.5), center.y + (-2.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (-8.5), center.y + (-2.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (-6.5), center.y + (-2.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (-4.5), center.y + (-2.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (-2.5), center.y + (-2.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (-0.5), center.y + (-2.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (1.5), center.y + (-2.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (3.5), center.y + (-2.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (5.5), center.y + (-2.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (7.5), center.y + (-2.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (9.5), center.y + (-2.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (11.5), center.y + (-2.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (-12.5), center.y + (2.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (-10.5), center.y + (2.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (-8.5), center.y + (2.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (-6.5), center.y + (2.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (-4.5), center.y + (2.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (-2.5), center.y + (2.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (-0.5), center.y + (2.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (1.5), center.y + (2.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (3.5), center.y + (2.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (5.5), center.y + (2.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (7.5), center.y + (2.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (9.5), center.y + (2.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (11.5), center.y + (2.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (-12.5), center.y + (7.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (-10.5), center.y + (7.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (-8.5), center.y + (7.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (-6.5), center.y + (7.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (-4.5), center.y + (7.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (-2.5), center.y + (7.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (-0.5), center.y + (7.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (1.5), center.y + (7.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (3.5), center.y + (7.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (5.5), center.y + (7.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (7.5), center.y + (7.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (9.5), center.y + (7.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (11.5), center.y + (7.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (-12.5), center.y + (12.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (-10.5), center.y + (12.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (-8.5), center.y + (12.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (-6.5), center.y + (12.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (-4.5), center.y + (12.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (-2.5), center.y + (12.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (-0.5), center.y + (12.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (1.5), center.y + (12.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (3.5), center.y + (12.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (5.5), center.y + (12.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (7.5), center.y + (12.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (9.5), center.y + (12.5)}, force = fN}
-    ce{name = randomTree, position = {center.x + (11.5), center.y + (12.5)}, force = fN}
-end
+return ruin
