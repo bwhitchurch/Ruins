@@ -1,14 +1,9 @@
+local ruin = {name = "Mining Setup 04"}
+local direct = defines.direction
 
-return function(center, surface) --mining setup
-    local ce = function(params)
-        params.raise_built = true
-        return surface.create_entity(params)
-    end
-    local fN = game.forces.neutral
-    local direct = defines.direction
-    ce{name = "electric-mining-drill", position = {center.x + (0.0), center.y + (0.0)}, direction = direct.west, force = fN}
-    local e = ce{name = "iron-chest", position = {center.x + (-2.0), center.y + (0.0)}, force = fN}
-    if e then
-      e.insert{name = "copper-ore", count = math.random(1, 75)}
-    end
-end
+ruin.entities = {
+    {name = "electric-mining-drill", position = {0.0, 0.0}, direction = direct.west},
+    {name = "iron-chest", position = {-2.0, 0.0}}
+}
+
+return ruin

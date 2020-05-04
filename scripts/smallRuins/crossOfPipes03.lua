@@ -1,16 +1,14 @@
+local ruin = {name = "Cross of Pipes 03"}
+local direct = defines.direction
 
-return function(center, surface) -- cross of pipes
-    local ce = function(params)
-        params.raise_built = true
-        return surface.create_entity(params)
-    end
-    local fN = game.forces.neutral
-    local direct = defines.direction
-    ce{name = "pipe-to-ground", position = {center.x + (-4.0), center.y + (0.0)}, direction = direct.east, force = fN}
-    ce{name = "pipe-to-ground", position = {center.x + (4.0), center.y + (0.0)}, direction = direct.west, force = fN}
-    ce{name = "pipe", position = {center.x + (-3.0), center.y + (0.0)}, force = fN}
-    ce{name = "pipe", position = {center.x + (-1.0), center.y + (0.0)}, force = fN}
-    ce{name = "pipe", position = {center.x + (0.0), center.y + (0.0)}, force = fN}
-    ce{name = "pipe", position = {center.x + (1.0), center.y + (0.0)}, force = fN}
-    ce{name = "pipe", position = {center.x + (2.0), center.y + (0.0)}, force = fN}
-end
+ruin.entities = {
+    {name = "pipe", position = {-3.0, 0.0}},
+    {name = "pipe", position = {-1.0, 0.0}},
+    {name = "pipe", position = {0.0, 0.0}},
+    {name = "pipe", position = {1.0, 0.0}},
+    {name = "pipe", position = {2.0, 0.0}},
+    {name = "pipe-to-ground", position = {-4.0, 0.0}, direction = direct.east},
+    {name = "pipe-to-ground", position = {4.0, 0.0}, direction = direct.west}
+}
+
+return ruins

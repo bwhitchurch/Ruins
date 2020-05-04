@@ -1,10 +1,8 @@
+local ruin = {name = "Research Station 10"}
 
-return function(center, surface) --research station
-    local ce = function(params)
-        params.raise_built = true
-        return surface.create_entity(params)
-    end
-    local fN = game.forces.neutral
-    ce{name = "lab", position = {center.x + 1.5, center.y-0.5}, force = fN}
-    ce{name = "wooden-chest", position = {center.x-1.5, center.y + 0.5}, force = fN}
-end
+ruin.entities = {
+    {name = "lab", position = {1.5, -0.5}},
+    {name = "wooden-chest", position = {-1.5, 0.5}}
+}
+
+return ruin

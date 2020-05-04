@@ -1,33 +1,17 @@
+local ruin = {name = "Small Dual Splitter 02"}
+local direct = defines.direction
 
-return function(center, surface) -- small dual splitter
-    local ce = function(params)
-        params.raise_built = true
-        return surface.create_entity(params)
-    end
-    local fN = game.forces.neutral
-    local direct = defines.direction
+ruin.entities = {
+    {name = "splitter", position = {-1.0, 0.5}, direction = direct.west},
+    {name = "splitter", position = {0.0, -0.5}, direction = direct.west},
+    {name = "transport-belt", position = {-2.0, 0.0}, direction = direct.west},
+    {name = "transport-belt", position = {-2.0, 1.0}, direction = direct.west},
+    {name = "transport-belt", position = {1.0, -1.0}, direction = direct.north},
+    {name = "transport-belt", position = {1.0, 0.0}, direction = direct.west},
+    {name = "transport-belt", position = {1.0, 1.0}, direction = direct.west},
+    {name = "transport-belt", position = {2.0, 0.0}, direction = direct.west},
+    {name = "transport-belt", position = {2.0, 1.0}, direction = direct.west},
+    {name = "transport-belt", position = {3.0, 0.0}, direction = direct.west}
+}
 
-    local e = ce{name="transport-belt", position={center.x + (1.0), center.y + (-1.0)}, force = fN}
-    if e then
-      e.damage(114,"neutral","physical")
-    end
-    ce{name="splitter", position={center.x + (0.0), center.y + (-0.5)}, direction = direct.west, force = fN}
-    local e = ce{name="splitter", position={center.x + (-1.0), center.y + (0.5)}, direction = direct.west, force = fN}
-    if e then
-      e.damage(36,"neutral","physical")
-    end
-    ce{name="transport-belt", position={center.x + (-2.0), center.y + (1.0)}, direction = direct.west, force = fN}
-    ce{name="transport-belt", position={center.x + (-2.0), center.y + (0.0)}, direction = direct.west, force = fN}
-    ce{name="transport-belt", position={center.x + (1.0), center.y + (0.0)}, direction = direct.west, force = fN}
-    local e = ce{name="transport-belt", position={center.x + (1.0), center.y + (1.0)}, direction = direct.west, force = fN}
-    if e then
-      e.damage(29,"neutral","physical")
-    end
-    ce{name="transport-belt", position={center.x + (2.0), center.y + (0.0)}, direction = direct.west, force = fN}
-    local e = ce{name="transport-belt", position={center.x + (2.0), center.y + (1.0)}, direction = direct.west, force = fN}
-    if e then
-      e.damage(56,"neutral","physical")
-    end
-    ce{name="transport-belt", position={center.x + (3.0), center.y + (0.0)}, direction = direct.west, force = fN}
-
-end
+return ruin

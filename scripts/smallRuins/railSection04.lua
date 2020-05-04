@@ -1,14 +1,12 @@
+local ruin = {name = "Rail Section 04"}
+local direct = defines.direction
 
-return function(center, surface) --section of rails
-    local ce = function(params)
-        params.raise_built = true
-        return surface.create_entity(params)
-    end
-    local fN = game.forces.neutral
-    local direct = defines.direction
-    ce{name = "straight-rail", position = {center.x + (0.0), center.y + (-10.0)}, force = fN}
-    ce{name = "straight-rail", position = {center.x + (0.0), center.y + (0.0)}, force = fN}
-    ce{name = "straight-rail", position = {center.x + (0.0), center.y + (2.0)}, force = fN}
-    ce{name = "straight-rail", position = {center.x + (0.0), center.y + (10.0)}, force = fN}
-    ce{name = "straight-rail", position = {center.x + (0.0), center.y + (12.0)}, force = fN}
-end
+ruin.entities = {
+    {name = "straight-rail", position = {0.0, -10.0}, direction = direct.north},
+    {name = "straight-rail", position = {0.0, 0.0}, direction = direct.north},
+    {name = "straight-rail", position = {0.0, 2.0}, direction = direct.north},
+    {name = "straight-rail", position = {0.0, 10.0}, direction = direct.north},
+    {name = "straight-rail", position = {0.0, 12.0}, direction = direct.north}
+}
+
+return ruin

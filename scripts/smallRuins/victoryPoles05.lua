@@ -1,10 +1,8 @@
+local ruin = {name = "Victory Poles 05"}
 
-return function(center, surface) --victory poles
-    local ce = function(params)
-        params.raise_built = true
-        return surface.create_entity(params)
-    end
-    local fN = game.forces.neutral
-    ce{name = "small-electric-pole", position = {center.x + (-2.0), center.y + (0.0)}, force = fN}
-    ce{name = "small-electric-pole", position = {center.x + (2.0), center.y + (0.0)}, force = fN}
-end
+ruin.entities = {
+    {name = "small-electric-pole", position = {-2.0, 0.0}},
+    {name = "small-electric-pole", position = {2.0, 0.0}},
+}
+
+return ruin
