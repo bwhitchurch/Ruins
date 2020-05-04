@@ -1,46 +1,44 @@
+local ruin = {name = "Rough Perimeter 01"}
+local direct = defines.direction
 
-return function(center, surface) --rough perimeter
-    local ce = function(params)
-        params.raise_built = true
-        return surface.create_entity(params)
-    end
-    local fN = game.forces.neutral
+ruin.entities = {
+    {name = "gate", position = {-5.0, -1.0}, direction = direct.north},
+    {name = "gate", position = {-5.0, -2.0}, direction = direct.north},
+    {name = "gate", position = {6.0, 2.0}, direction = direct.north},
+    {name = "gate", position = {6.0, 3.0}, direction = direct.north},
+    {name = "rock-big", position = {-5.5, -5.5}},
+    {name = "rock-big", position = {-5.5, 3.5}},
+    {name = "rock-big", position = {-1.5, -4.5}},
+    {name = "rock-big", position = {-0.5, 6.5}},
+    {name = "rock-big", position = {2.5, -4.5}},
+    {name = "rock-big", position = {3.5, 4.5}},
+    {name = "rock-big", position = {5.5, -5.5}},
+    {name = "rock-big", position = {6.5, -0.5}},
+    {name = "stone-wall", position = {-5.0, -4.0}},
+    {name = "stone-wall", position = {-5.0, -3.0}},
+    {name = "stone-wall", position = {-5.0, 0.0}},
+    {name = "stone-wall", position = {-5.0, 1.0}},
+    {name = "stone-wall", position = {-5.0, 2.0}},
+    {name = "stone-wall", position = {-5.0, 5.0}},
+    {name = "stone-wall", position = {-5.0, 6.0}},
+    {name = "stone-wall", position = {-4.0, -5.0}},
+    {name = "stone-wall", position = {-4.0, 6.0}},
+    {name = "stone-wall", position = {-3.0, -5.0}},
+    {name = "stone-wall", position = {-3.0, 6.0}},
+    {name = "stone-wall", position = {-2.0, 6.0}},
+    {name = "stone-wall", position = {0.0, -5.0}},
+    {name = "stone-wall", position = {1.0, -5.0}},
+    {name = "stone-wall", position = {1.0, 5.0}},
+    {name = "stone-wall", position = {1.0, 6.0}},
+    {name = "stone-wall", position = {2.0, 5.0}},
+    {name = "stone-wall", position = {4.0, -5.0}},
+    {name = "stone-wall", position = {5.0, 5.0}},
+    {name = "stone-wall", position = {6.0, -4.0}},
+    {name = "stone-wall", position = {6.0, -3.0}},
+    {name = "stone-wall", position = {6.0, -2.0}},
+    {name = "stone-wall", position = {6.0, 1.0}},
+    {name = "stone-wall", position = {6.0, 4.0}},
+    {name = "stone-wall", position = {6.0, 5.0}}
+}
 
-    ce{name = "rock-big", position = {center.x + (-5.5), center.y + (-5.5)}, force = fN}
-    ce{name = "rock-big", position = {center.x + (5.5), center.y + (-5.5)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-5.0), center.y + (-4.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-3.0), center.y + (-5.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-4.0), center.y + (-5.0)}, force = fN}
-    ce{name = "rock-big", position = {center.x + (-1.5), center.y + (-4.5)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (1.0), center.y + (-5.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (0.0), center.y + (-5.0)}, force = fN}
-    ce{name = "rock-big", position = {center.x + (2.5), center.y + (-4.5)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (4.0), center.y + (-5.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (6.0), center.y + (-4.0)}, force = fN}
-    ce{name = "gate", position = {center.x + (-5.0), center.y + (-2.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-5.0), center.y + (-3.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (6.0), center.y + (-2.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (6.0), center.y + (-3.0)}, force = fN}
-    ce{name = "gate", position = {center.x + (-5.0), center.y + (-1.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-5.0), center.y + (0.0)}, force = fN}
-    ce{name = "rock-big", position = {center.x + (6.5), center.y + (-0.5)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-5.0), center.y + (2.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-5.0), center.y + (1.0)}, force = fN}
-    ce{name = "gate", position = {center.x + (6.0), center.y + (2.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (6.0), center.y + (1.0)}, force = fN}
-    ce{name = "rock-big", position = {center.x + (-5.5), center.y + (3.5)}, force = fN}
-    ce{name = "rock-big", position = {center.x + (3.5), center.y + (4.5)}, force = fN}
-    ce{name = "gate", position = {center.x + (6.0), center.y + (3.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (6.0), center.y + (4.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-5.0), center.y + (5.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-5.0), center.y + (6.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-4.0), center.y + (6.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-3.0), center.y + (6.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-2.0), center.y + (6.0)}, force = fN}
-    ce{name = "rock-big", position = {center.x + (-0.5), center.y + (6.5)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (1.0), center.y + (6.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (1.0), center.y + (5.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (2.0), center.y + (5.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (5.0), center.y + (5.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (6.0), center.y + (5.0)}, force = fN}
-end
+return ruin

@@ -1,76 +1,74 @@
+local ruin = {name = "Tree Fort Trapped"}
+local direct = defines.direction
 
-return function(center, surface)
-    local ce = function(params)
-        params.raise_built = true
-        return surface.create_entity(params)
-    end
-    local fN = game.forces.neutral
-    local direct = defines.direction
-    ce{name = "stone-wall", position = {center.x + (-5.0), center.y + (-6.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-6.0), center.y + (-6.0)}, force = fN}
-    ce{name = "gate", position = {center.x + (-4.0), center.y + (-6.0)}, direction = direct.east, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-3.0), center.y + (-6.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-1.0), center.y + (-6.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-2.0), center.y + (-6.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (0.0), center.y + (-6.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (3.0), center.y + (-6.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (6.0), center.y + (-6.0)}, force = fN}
-    ce{name = "tree-05", position = {center.x + (-4.5), center.y + (-4.5)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-6.0), center.y + (-4.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-6.0), center.y + (-5.0)}, force = fN}
-    ce{name = "pipe-to-ground", position = {center.x + (-1.0), center.y + (-4.0)}, direction = direct.south, force = fN}
-    ce{name = "stone-wall", position = {center.x + (2.0), center.y + (-4.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (6.0), center.y + (-5.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-5.0), center.y + (-3.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-6.0), center.y + (-3.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-3.0), center.y + (-3.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-4.0), center.y + (-3.0)}, force = fN}
-    ce{name = "pipe-to-ground", position = {center.x + (-1.0), center.y + (-3.0)}, force = fN}
-    ce{name = "tree-05", position = {center.x + (-1.5), center.y + (-1.5)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (1.0), center.y + (-3.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (0.0), center.y + (-3.0)}, force = fN}
-    ce{name = "land-mine", position = {center.x + (2.44921875), center.y + (-1.72265625)}, force = game.forces.enemy}
-    ce{name = "stone-wall", position = {center.x + (3.0), center.y + (-3.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (2.0), center.y + (-3.0)}, force = fN}
-    ce{name = "tree-05", position = {center.x + (4.5), center.y + (-1.5)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (4.0), center.y + (-3.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (6.0), center.y + (-2.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-6.0), center.y + (0.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-2.0), center.y + (0.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (4.0), center.y + (0.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (6.0), center.y + (0.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (6.0), center.y + (-1.0)}, force = fN}
-    ce{name = "land-mine", position = {center.x + (-4.3359375), center.y + (2.50390625)}, force = game.forces.enemy}
-    ce{name = "stone-wall", position = {center.x + (-5.0), center.y + (1.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-6.0), center.y + (2.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-6.0), center.y + (1.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-3.0), center.y + (1.0)}, force = fN}
-    ce{name = "gate", position = {center.x + (-1.0), center.y + (1.0)}, direction = direct.east, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-2.0), center.y + (1.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (1.0), center.y + (1.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (0.0), center.y + (2.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (0.0), center.y + (1.0)}, force = fN}
-    ce{name = "tree-05", position = {center.x + (2.5), center.y + (2.5)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (3.0), center.y + (1.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (2.0), center.y + (1.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (4.0), center.y + (2.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (4.0), center.y + (1.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-6.0), center.y + (4.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-6.0), center.y + (3.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (0.0), center.y + (4.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (4.0), center.y + (4.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (4.0), center.y + (3.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (6.0), center.y + (4.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (6.0), center.y + (3.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-5.0), center.y + (5.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-3.0), center.y + (5.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-1.0), center.y + (5.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-2.0), center.y + (5.0)}, force = fN}
-    ce{name = "gate", position = {center.x + (1.0), center.y + (5.0)}, direction = direct.east, force = fN}
-    ce{name = "stone-wall", position = {center.x + (0.0), center.y + (5.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (2.0), center.y + (5.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (3.0), center.y + (5.0)}, force = fN}
-    ce{name = "gate", position = {center.x + (5.0), center.y + (5.0)}, direction = direct.east, force = fN}
-    ce{name = "stone-wall", position = {center.x + (4.0), center.y + (5.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (6.0), center.y + (5.0)}, force = fN}
-end
+ruin.entities = {
+    {name = "gate", position = {-4.0, -6.0}, direction = direct.east},
+    {name = "gate", position = {-1.0, 1.0}, direction = direct.east},
+    {name = "gate", position = {1.0, 5.0}, direction = direct.east},
+    {name = "gate", position = {5.0, 5.0}, direction = direct.east},
+    {name = "land-mine", position = {-4.3359375, 2.50390625}},
+    {name = "land-mine", position = {2.44921875, -1.72265625}},
+    {name = "pipe-to-ground", position = {-1.0, -4.0}, direction = direct.south},
+    {name = "pipe-to-ground", position = {-1.0, -3.0}, direction = direct.north},
+    {name = "stone-wall", position = {-6.0, -6.0}},
+    {name = "stone-wall", position = {-6.0, -5.0}},
+    {name = "stone-wall", position = {-6.0, -4.0}},
+    {name = "stone-wall", position = {-6.0, -3.0}},
+    {name = "stone-wall", position = {-6.0, 0.0}},
+    {name = "stone-wall", position = {-6.0, 1.0}},
+    {name = "stone-wall", position = {-6.0, 2.0}},
+    {name = "stone-wall", position = {-6.0, 3.0}},
+    {name = "stone-wall", position = {-6.0, 4.0}},
+    {name = "stone-wall", position = {-5.0, -6.0}},
+    {name = "stone-wall", position = {-5.0, -3.0}},
+    {name = "stone-wall", position = {-5.0, 1.0}},
+    {name = "stone-wall", position = {-5.0, 5.0}},
+    {name = "stone-wall", position = {-4.0, -3.0}},
+    {name = "stone-wall", position = {-3.0, -6.0}},
+    {name = "stone-wall", position = {-3.0, -3.0}},
+    {name = "stone-wall", position = {-3.0, 1.0}},
+    {name = "stone-wall", position = {-3.0, 5.0}},
+    {name = "stone-wall", position = {-2.0, -6.0}},
+    {name = "stone-wall", position = {-2.0, 0.0}},
+    {name = "stone-wall", position = {-2.0, 1.0}},
+    {name = "stone-wall", position = {-2.0, 5.0}},
+    {name = "stone-wall", position = {-1.0, -6.0}},
+    {name = "stone-wall", position = {-1.0, 5.0}},
+    {name = "stone-wall", position = {0.0, -6.0}},
+    {name = "stone-wall", position = {0.0, -3.0}},
+    {name = "stone-wall", position = {0.0, 1.0}},
+    {name = "stone-wall", position = {0.0, 2.0}},
+    {name = "stone-wall", position = {0.0, 4.0}},
+    {name = "stone-wall", position = {0.0, 5.0}},
+    {name = "stone-wall", position = {1.0, -3.0}},
+    {name = "stone-wall", position = {1.0, 1.0}},
+    {name = "stone-wall", position = {2.0, -4.0}},
+    {name = "stone-wall", position = {2.0, -3.0}},
+    {name = "stone-wall", position = {2.0, 1.0}},
+    {name = "stone-wall", position = {2.0, 5.0}},
+    {name = "stone-wall", position = {3.0, -6.0}},
+    {name = "stone-wall", position = {3.0, -3.0}},
+    {name = "stone-wall", position = {3.0, 1.0}},
+    {name = "stone-wall", position = {3.0, 5.0}},
+    {name = "stone-wall", position = {4.0, -3.0}},
+    {name = "stone-wall", position = {4.0, 0.0}},
+    {name = "stone-wall", position = {4.0, 1.0}},
+    {name = "stone-wall", position = {4.0, 2.0}},
+    {name = "stone-wall", position = {4.0, 3.0}},
+    {name = "stone-wall", position = {4.0, 4.0}},
+    {name = "stone-wall", position = {4.0, 5.0}},
+    {name = "stone-wall", position = {6.0, -6.0}},
+    {name = "stone-wall", position = {6.0, -5.0}},
+    {name = "stone-wall", position = {6.0, -2.0}},
+    {name = "stone-wall", position = {6.0, -1.0}},
+    {name = "stone-wall", position = {6.0, 0.0}},
+    {name = "stone-wall", position = {6.0, 3.0}},
+    {name = "stone-wall", position = {6.0, 4.0}},
+    {name = "stone-wall", position = {6.0, 5.0}},
+    {name = "randomTree", position = {-4.5, -4.5}},
+    {name = "randomTree", position = {-1.5, -1.5}},
+    {name = "randomTree", position = {2.5, 2.5}},
+    {name = "randomTree", position = {4.5, -1.5}}
+}
+
+return ruin

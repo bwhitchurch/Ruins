@@ -1,58 +1,49 @@
-return function(center, surface)
-    local ce = function(params)
-        params.raise_built = true
-        return surface.create_entity(params)
-    end
+local ruin = {name = "Rough Fort"}
+local direct = defines.direction
 
-    local fN = game.forces.neutral
-    local direct = defines.direction
+ruin.entities = {
+    {name = "gate", position = {6.0, 4.0}, direction = direct.north},
+    {name = "gate", position = {6.0, 5.0}, direction = direct.north},
+    {name = "gun-turret", position = {-2.5, 4.5}},
+    {name = "gun-turret", position = {2.5, -2.5}},
+    {name = "land-mine", position = {4.86328125, 4.16796875}},
+    {name = "medium-electric-pole", position = {-4.0, -4.0}},
+    {name = "medium-electric-pole", position = {1.0, 2.0}},
+    {name = "radar", position = {-1.0, -1.0}},
+    {name = "radar", position = {-1.0, 2.0}},
+    {name = "randomTree", position = {-5.5, -4.5}},
+    {name = "randomTree", position = {-5.5, -2.5}},
+    {name = "randomTree", position = {-5.5, 3.5}},
+    {name = "randomTree", position = {-5.5, 5.5}},
+    {name = "randomTree", position = {-2.5, -5.5}},
+    {name = "randomTree", position = {-1.5, 6.5}},
+    {name = "randomTree", position = {-0.5, -5.5}},
+    {name = "randomTree", position = {1.5, 6.5}},
+    {name = "randomTree", position = {2.5, -5.5}},
+    {name = "randomTree", position = {4.5, 6.5}},
+    {name = "randomTree", position = {5.5, -5.5}},
+    {name = "randomTree", position = {5.5, -3.5}},
+    {name = "randomTree", position = {5.5, -0.5}},
+    {name = "randomTree", position = {5.5, 2.5}},
+    {name = "stone-wall", position = {-6.0, -6.0}},
+    {name = "stone-wall", position = {-6.0, -1.0}},
+    {name = "stone-wall", position = {-6.0, 0.0}},
+    {name = "stone-wall", position = {-6.0, 1.0}},
+    {name = "stone-wall", position = {-6.0, 2.0}},
+    {name = "stone-wall", position = {-6.0, 7.0}},
+    {name = "stone-wall", position = {-5.0, -6.0}},
+    {name = "stone-wall", position = {-5.0, 7.0}},
+    {name = "stone-wall", position = {-4.0, -6.0}},
+    {name = "stone-wall", position = {-4.0, 7.0}},
+    {name = "stone-wall", position = {-3.0, 7.0}},
+    {name = "stone-wall", position = {0.0, 7.0}},
+    {name = "stone-wall", position = {1.0, -6.0}},
+    {name = "stone-wall", position = {3.0, 7.0}},
+    {name = "stone-wall", position = {4.0, -6.0}},
+    {name = "stone-wall", position = {6.0, -2.0}},
+    {name = "stone-wall", position = {6.0, 1.0}},
+    {name = "stone-wall", position = {6.0, 6.0}},
+    {name = "stone-wall", position = {6.0, 7.0}}
+}
 
-    ce{name = "stone-wall", position = {center.x + (-6.0), center.y + (-6.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-5.0), center.y + (-6.0)}, force = fN}
-    ce{name = "tree-05", position = {center.x + (-5.5), center.y + (-4.5)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-4.0), center.y + (-6.0)}, force = fN}
-    ce{name = "tree-05", position = {center.x + (-2.5), center.y + (-5.5)}, force = fN}
-    ce{name = "tree-05", position = {center.x + (-0.5), center.y + (-5.5)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (1.0), center.y + (-6.0)}, force = fN}
-    ce{name = "tree-05", position = {center.x + (2.5), center.y + (-5.5)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (4.0), center.y + (-6.0)}, force = fN}
-    ce{name = "tree-05", position = {center.x + (5.5), center.y + (-5.5)}, force = fN}
-    ce{name = "tree-05", position = {center.x + (-5.5), center.y + (-2.5)}, force = fN}
-    ce{name = "medium-electric-pole", position = {center.x + (-4.0), center.y + (-4.0)}, force = fN}
-    local e = ce{name = "gun-turret", position = {center.x + (2.5), center.y + (-2.5)}, force = game.forces.enemy}
-    if e then
-      e.insert{name = "piercing-rounds-magazine", count = 5}
-    end
-    ce{name = "tree-05", position = {center.x + (5.5), center.y + (-3.5)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-6.0), center.y + (-1.0)}, force = fN}
-    ce{name = "radar", position = {center.x + (-1.0), center.y + (-1.0)}, force = fN}
-    ce{name = "tree-05", position = {center.x + (5.5), center.y + (-0.5)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (6.0), center.y + (-2.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-6.0), center.y + (1.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-6.0), center.y + (0.0)}, force = fN}
-    ce{name = "radar", position = {center.x + (-1.0), center.y + (2.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (6.0), center.y + (1.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-6.0), center.y + (2.0)}, force = fN}
-    ce{name = "tree-05", position = {center.x + (-5.5), center.y + (3.5)}, force = fN}
-    ce{name = "medium-electric-pole", position = {center.x + (1.0), center.y + (2.0)}, force = fN}
-    ce{name = "tree-05", position = {center.x + (5.5), center.y + (2.5)}, force = fN}
-    ce{name = "tree-05", position = {center.x + (-5.5), center.y + (5.5)}, force = fN}
-    local e = ce{name = "gun-turret", position = {center.x + (-2.5), center.y + (4.5)}, force = game.forces.enemy}
-    if e then
-      e.insert{name = "piercing-rounds-magazine", count = 5}
-    end
-    ce{name = "land-mine", position = {center.x + (4.86328125), center.y + (4.16796875)}, force = game.forces.enemy}
-    ce{name = "gate", position = {center.x + (6.0), center.y + (5.0)}, force = fN}
-    ce{name = "gate", position = {center.x + (6.0), center.y + (4.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-5.0), center.y + (7.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-6.0), center.y + (7.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-3.0), center.y + (7.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-4.0), center.y + (7.0)}, force = fN}
-    ce{name = "tree-05", position = {center.x + (-1.5), center.y + (6.5)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (0.0), center.y + (7.0)}, force = fN}
-    ce{name = "tree-05", position = {center.x + (1.5), center.y + (6.5)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (3.0), center.y + (7.0)}, force = fN}
-    ce{name = "tree-05", position = {center.x + (4.5), center.y + (6.5)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (6.0), center.y + (6.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (6.0), center.y + (7.0)}, force = fN}
-end
+return ruin

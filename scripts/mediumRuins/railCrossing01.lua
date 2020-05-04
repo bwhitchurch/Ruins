@@ -1,44 +1,41 @@
+local ruin = {name = "Rail Crossing"}
+local direct = defines.direction
 
-return function(center, surface)
-    local ce = function(params)
-        params.raise_built = true
-        return surface.create_entity(params)
-    end
-    local fN = game.forces.neutral
-    local direct = defines.direction
-    ce{name = "stone-wall", position = {center.x + (-1.5), center.y + (-5.5)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-1.5), center.y + (-6.5)}, force = fN}
-    ce{name = "straight-rail", position = {center.x + (0.0), center.y + (-6.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (1.5), center.y + (-6.5)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-1.5), center.y + (-4.5)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (1.5), center.y + (-4.5)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (1.5), center.y + (-3.5)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-1.5), center.y + (-1.5)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-1.5), center.y + (-2.5)}, force = fN}
-    ce{name = "straight-rail", position = {center.x + (0.0), center.y + (-2.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (1.5), center.y + (-2.5)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (1.5), center.y + (-1.5)}, force = fN}
-    ce{name = "straight-rail", position = {center.x + (-6.0), center.y + (0.0)}, direction = direct.east, force = fN}
-    ce{name = "straight-rail", position = {center.x + (-4.0), center.y + (0.0)}, direction = direct.east, force = fN}
-    ce{name = "gate", position = {center.x + (-1.5), center.y + (0.5)}, force = fN}
-    ce{name = "gate", position = {center.x + (-1.5), center.y + (-0.5)}, force = fN}
-    ce{name = "straight-rail", position = {center.x + (-2.0), center.y + (0.0)}, direction = direct.east, force = fN}
-    ce{name = "straight-rail", position = {center.x + (0.0), center.y + (0.0)}, force = fN}
-    ce{name = "straight-rail", position = {center.x + (0.0), center.y + (0.0)}, direction = direct.east, force = fN}
-    ce{name = "gate", position = {center.x + (1.5), center.y + (0.5)}, force = fN}
-    ce{name = "gate", position = {center.x + (1.5), center.y + (-0.5)}, force = fN}
-    ce{name = "straight-rail", position = {center.x + (2.0), center.y + (0.0)}, direction = direct.east, force = fN}
-    ce{name = "straight-rail", position = {center.x + (6.0), center.y + (0.0)}, direction = direct.east, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-1.5), center.y + (2.5)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-1.5), center.y + (1.5)}, force = fN}
-    ce{name = "straight-rail", position = {center.x + (0.0), center.y + (2.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (1.5), center.y + (1.5)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (1.5), center.y + (2.5)}, force = fN}
-    ce{name = "straight-rail", position = {center.x + (0.0), center.y + (4.0)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (1.5), center.y + (4.5)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-1.5), center.y + (6.5)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (-1.5), center.y + (5.5)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (1.5), center.y + (5.5)}, force = fN}
-    ce{name = "stone-wall", position = {center.x + (1.5), center.y + (6.5)}, force = fN}
+ruin.entities = {
+    {name = "gate", position = {-1.5, -0.5}, direction = direct.north},
+    {name = "gate", position = {-1.5, 0.5}, direction = direct.north},
+    {name = "gate", position = {1.5, -0.5}, direction = direct.north},
+    {name = "gate", position = {1.5, 0.5}, direction = direct.north},
+    {name = "stone-wall", position = {-1.5, -6.5}},
+    {name = "stone-wall", position = {-1.5, -5.5}},
+    {name = "stone-wall", position = {-1.5, -4.5}},
+    {name = "stone-wall", position = {-1.5, -2.5}},
+    {name = "stone-wall", position = {-1.5, -1.5}},
+    {name = "stone-wall", position = {-1.5, 1.5}},
+    {name = "stone-wall", position = {-1.5, 2.5}},
+    {name = "stone-wall", position = {-1.5, 5.5}},
+    {name = "stone-wall", position = {-1.5, 6.5}},
+    {name = "stone-wall", position = {1.5, -6.5}},
+    {name = "stone-wall", position = {1.5, -4.5}},
+    {name = "stone-wall", position = {1.5, -3.5}},
+    {name = "stone-wall", position = {1.5, -2.5}},
+    {name = "stone-wall", position = {1.5, -1.5}},
+    {name = "stone-wall", position = {1.5, 1.5}},
+    {name = "stone-wall", position = {1.5, 2.5}},
+    {name = "stone-wall", position = {1.5, 4.5}},
+    {name = "stone-wall", position = {1.5, 5.5}},
+    {name = "stone-wall", position = {1.5, 6.5}},
+    {name = "straight-rail", position = {-6.0, 0.0}, direction = direct.east},
+    {name = "straight-rail", position = {-4.0, 0.0}, direction = direct.east},
+    {name = "straight-rail", position = {-2.0, 0.0}, direction = direct.east},
+    {name = "straight-rail", position = {0.0, -6.0}, direction = direct.north},
+    {name = "straight-rail", position = {0.0, -2.0}, direction = direct.north},
+    {name = "straight-rail", position = {0.0, 0.0}, direction = direct.east},
+    {name = "straight-rail", position = {0.0, 0.0}, direction = direct.north},
+    {name = "straight-rail", position = {0.0, 2.0}, direction = direct.north},
+    {name = "straight-rail", position = {0.0, 4.0}, direction = direct.north},
+    {name = "straight-rail", position = {2.0, 0.0}, direction = direct.east},
+    {name = "straight-rail", position = {6.0, 0.0}, direction = direct.east}
+}
 
-end
+return ruin

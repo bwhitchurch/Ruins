@@ -1,38 +1,33 @@
+local ruin = {name = "Biter Defense Setup"}
 
-return function(center, surface) --biter defense setup
-    local ce = function(params)
-        params.raise_built = true
-        return surface.create_entity(params)
-    end
-    local fN = game.forces.neutral
-    local direct = defines.direction
+ruin.entities = {
+    {name = "biter-spawner", position = {-2.0, 2.0}},
+    {name = "biter-spawner", position = {2.0, -3.0}},
+    {name = "biter-spawner", position = {2.0, 1.0}},
+    {name = "rock-big", position = {-6.5, -5.5}},
+    {name = "rock-big", position = {-6.5, -3.5}},
+    {name = "rock-big", position = {-6.5, -1.5}},
+    {name = "rock-big", position = {-6.5, 0.5}},
+    {name = "rock-big", position = {-6.5, 2.5}},
+    {name = "rock-big", position = {-6.5, 4.5}},
+    {name = "rock-big", position = {-5.5, 6.5}},
+    {name = "rock-big", position = {-4.5, -6.5}},
+    {name = "rock-big", position = {-3.5, 6.5}},
+    {name = "rock-big", position = {-2.5, -6.5}},
+    {name = "rock-big", position = {-1.5, 6.5}},
+    {name = "rock-big", position = {-0.5, -6.5}},
+    {name = "rock-big", position = {0.5, 6.5}},
+    {name = "rock-big", position = {1.5, -6.5}},
+    {name = "rock-big", position = {2.5, 6.5}},
+    {name = "rock-big", position = {3.5, -6.5}},
+    {name = "rock-big", position = {4.5, 6.5}},
+    {name = "rock-big", position = {5.5, -6.5}},
+    {name = "rock-big", position = {6.5, -4.5}},
+    {name = "rock-big", position = {6.5, -2.5}},
+    {name = "rock-big", position = {6.5, -0.5}},
+    {name = "rock-big", position = {6.5, 1.5}},
+    {name = "rock-big", position = {6.5, 3.5}},
+    {name = "rock-big", position = {6.5, 6.5}},
+}
 
-    ce{name = "rock-big", position = {center.x + (-6.5), center.y + (-5.5)}, force = fN}
-    ce{name = "rock-big", position = {center.x + (-4.5), center.y + (-6.5)}, force = fN}
-    ce{name = "rock-big", position = {center.x + (-2.5), center.y + (-6.5)}, force = fN}
-    ce{name = "rock-big", position = {center.x + (-0.5), center.y + (-6.5)}, force = fN}
-    ce{name = "rock-big", position = {center.x + (1.5), center.y + (-6.5)}, force = fN}
-    ce{name = "rock-big", position = {center.x + (3.5), center.y + (-6.5)}, force = fN}
-    ce{name = "rock-big", position = {center.x + (5.5), center.y + (-6.5)}, force = fN}
-    ce{name = "rock-big", position = {center.x + (-6.5), center.y + (-3.5)}, force = fN}
-    ce{name = "biter-spawner", position = {center.x + (2.0), center.y + (-3.0)}, force = game.forces.enemy}
-    ce{name = "rock-big", position = {center.x + (6.5), center.y + (-4.5)}, force = fN}
-    ce{name = "rock-big", position = {center.x + (-6.5), center.y + (-1.5)}, force = fN}
-    ce{name = "rock-big", position = {center.x + (6.5), center.y + (-2.5)}, force = fN}
-    ce{name = "rock-big", position = {center.x + (-6.5), center.y + (0.5)}, force = fN}
-    ce{name = "biter-spawner", position = {center.x + (2.0), center.y + (1.0)}, force = game.forces.enemy}
-    ce{name = "rock-big", position = {center.x + (6.5), center.y + (-0.5)}, force = fN}
-    ce{name = "rock-big", position = {center.x + (-6.5), center.y + (2.5)}, force = fN}
-    ce{name = "biter-spawner", position = {center.x + (-2.0), center.y + (2.0)}, force = game.forces.enemy}
-    ce{name = "rock-big", position = {center.x + (6.5), center.y + (1.5)}, force = fN}
-    ce{name = "rock-big", position = {center.x + (-6.5), center.y + (4.5)}, force = fN}
-    ce{name = "rock-big", position = {center.x + (6.5), center.y + (3.5)}, force = fN}
-    ce{name = "rock-big", position = {center.x + (-5.5), center.y + (6.5)}, force = fN}
-    ce{name = "rock-big", position = {center.x + (-3.5), center.y + (6.5)}, force = fN}
-    ce{name = "rock-big", position = {center.x + (-1.5), center.y + (6.5)}, force = fN}
-    ce{name = "rock-big", position = {center.x + (0.5), center.y + (6.5)}, force = fN}
-    ce{name = "rock-big", position = {center.x + (2.5), center.y + (6.5)}, force = fN}
-    ce{name = "rock-big", position = {center.x + (4.5), center.y + (6.5)}, force = fN}
-    ce{name = "rock-big", position = {center.x + (6.5), center.y + (6.5)}, force = fN}
-
-end
+return ruin
