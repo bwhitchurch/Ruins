@@ -14,7 +14,7 @@ local function clearArea(center, surface, radius)
 			surface.find_entities_filtered{
 				position = center,
 				radius = radius,
-				type = { "resource, tree" },
+				type = { "resource", "tree" },
 				invert = true
 			}
 		)
