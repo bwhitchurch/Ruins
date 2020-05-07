@@ -2,7 +2,7 @@ require("smallRuins")
 require("mediumRuins")
 require("largeRuins")
 
-local spawnTable = {}
+global.spawnTable = {}
 
 local DEBUG = false --used for debug, users should not enable
 
@@ -25,19 +25,19 @@ local function spawnChances()
 	local largeThreshold =
 		largeChance / sumChance * totalChance + mediumThreshold
 
-    spawnTable = {small = smallThreshold, medium = mediumThreshold, large = largeThreshold}
+    global.spawnTable = {small = smallThreshold, medium = mediumThreshold, large = largeThreshold}
 end
 
 -- Spawn Table won't change as long as settings don't change, so we can compute
 -- once and forget about it.
 script.on_init(spawnChances)
-script.on_load(spawnChances)
 script.on_event(defines.events.on_runtime_mod_setting_changed, spawnChances)
 
 script.on_event(defines.events.on_chunk_generated,
     function (e)
         local center = {x=(e.area.left_top.x+e.area.right_bottom.x)/2, y=(e.area.left_top.y+e.area.right_bottom.y)/2}
         if math.abs(center.x) < settings.global["ruins-min-distance-from-spawn"].value and math.abs(center.y) < settings.global["ruins-min-distance-from-spawn"].value then return end --too close to spawn
+        local spawnTable = global.spawnTable
         local spawnType = math.random()
 
         if spawnType <= spawnTable.small then
